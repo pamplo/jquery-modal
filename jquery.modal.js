@@ -238,7 +238,7 @@
   // Automatically bind links with rel="modal:close" to, well, close the modal.
   $(document).on('click.modal', '[data-modal-close]', $.modal.close);
   $(document).on('click.modal', '[data-modal]', function (event) {
-    event.preventDefault();
+    event.stopPropagation();
     $(this).modal();
   });
 }));
