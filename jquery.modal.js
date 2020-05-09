@@ -148,16 +148,15 @@
 
     hide: function () {
       this.$elm.trigger($.modal.BEFORE_CLOSE, [this._ctx()]);
+      if (this.closeButton) this.closeButton.remove();
       this.$elm.removeClass('animate-in').addClass('animate-out')
       var _this = this;
       if (this.options.doFade) {
         this.$elm.fadeOut(this.options.fadeDuration, function () {
-          if (this.closeButton) this.closeButton.remove();
           _this.$elm.trigger($.modal.AFTER_CLOSE, [_this._ctx()]);
         });
       } else {
         this.$elm.hide(0, function () {
-          if (this.closeButton) this.closeButton.remove();
           _this.$elm.trigger($.modal.AFTER_CLOSE, [_this._ctx()]);
         });
       }
